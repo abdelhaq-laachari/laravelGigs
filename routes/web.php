@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Listing;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/posts/{id}',function($id){
-    return "This is post number ".$id;
+    return view('listings',[
+        'listings' => Listing::all()
+    ]);
 });
